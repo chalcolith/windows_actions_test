@@ -1,0 +1,24 @@
+name: PR
+on: pull_request
+jobs:
+  x86_64-windows:
+    runs-on: windows-2022
+    defaults:
+      run:
+        shell: powershell
+    strategy:
+      fail-fast: false
+    name: x86_64-windows
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Configure
+        run: .\make.ps1 -Command configure
+      - name: Build Debug
+        run: .\make.ps1 -Command build -Config Debug
+      - name: Hello Debug
+        run: .\build\Debug\Debug\hello.exe
+      - name: Build Release
+        run: .\make.ps1 -Command build -Config Release
+      - name: Hello Release
+        run: .\build\Release\Release\hello.exe
