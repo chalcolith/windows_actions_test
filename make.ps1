@@ -8,8 +8,10 @@ Param(
   $Config = "Release"
 )
 
-$SrcDir = "src"
-$BuildDir = "build\$Config"
+$BaseDir = Split-Path $script:MyInvocation.MyCommand.Path
+
+$SrcDir = "$BaseDir\src"
+$BuildDir = "$BaseDir\build\$Config"
 
 if (!(Test-Path -Path $BuildDir))
 {
@@ -28,6 +30,6 @@ switch ($Command.ToLower())
   }
   "clean"
   {
-    Remove-Item -Force -Recurse -Path "build"
+    Remove-Item -Force -Recurse -Path "$BaseDir\build"
   }
 }
