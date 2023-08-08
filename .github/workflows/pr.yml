@@ -1,5 +1,5 @@
-name: PR
-on: pull_request
+name: OnPush
+on: push
 jobs:
   x86_64-windows:
     runs-on: windows-2022
