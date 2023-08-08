@@ -22,10 +22,12 @@ switch ($Command.ToLower())
 {
   "configure"
   {
+    Write-Host "cmake.exe -B `"$BuildDir`" -S `"$SrcDir`" -G `"Visual Studio 17 2022`""
     & cmake.exe -B "$BuildDir" -S "$SrcDir" -G "Visual Studio 17 2022"
   }
   "build"
   {
+    Write-Host "cmake.exe --build `"$BuildDir`" --config `"$Config`" --target ALL_BUILD"
     & cmake.exe --build "$BuildDir" --config "$Config" --target ALL_BUILD
   }
   "clean"
