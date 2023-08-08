@@ -11,7 +11,7 @@ Param(
 $BaseDir = Split-Path $script:MyInvocation.MyCommand.Path
 
 $SrcDir = "$BaseDir\src"
-$BuildDir = "$BaseDir\build\$Config"
+$BuildDir = "$BaseDir\build"
 
 if (!(Test-Path -Path $BuildDir))
 {

@@ -17,8 +17,8 @@ jobs:
       - name: Build Debug
         run: .\make.ps1 -Command build -Config Debug
       - name: Hello Debug
-        run: .\build\Debug\Debug\hello.exe
+        run: .\build\Debug\hello.exe
       - name: Build Release
         run: .\make.ps1 -Command build -Config Release
       - name: Hello Release
-        run: .\build\Release\Release\hello.exe
+        run: .\build\Release\hello.exe
