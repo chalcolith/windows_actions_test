@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Check LLDB
-        run: >
+        run: |
           Invoke-WebRequest -Uri 'https://www.python.org/ftp/python/3.10.10/python-3.10.10-embed-amd64.zip' -OutFile .\python_dlls.zip
           Expand-Archive -Path .\python_dlls.zip -DestinationPath .
           & 'C:\Program Files\LLVM\bin\lldb.exe' --version
