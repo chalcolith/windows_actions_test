@@ -12,8 +12,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Prepare
-        run: winget MSYS2.MSYS2
+      - name: Check LLD
+        run: &'C:\Program Files\LLVM\bin\lld' --version
+      - name: Check LLDB
+        run: &'C:\Program Files\LLVML\bin\lldb' --version
       - name: Configure
         run: .\make.ps1 -Command configure
       - name: Build Debug
