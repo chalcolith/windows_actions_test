@@ -13,9 +13,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Check LLD
-        run: &'C:\Program Files\LLVM\bin\lld' --version
+        run: >
+          & 'C:\Program Files\LLVM\bin\lld" --version
       - name: Check LLDB
-        run: &'C:\Program Files\LLVML\bin\lldb' --version
+        run: >
+          & 'C:\Program Files\LLVML\bin\lldb' --version
       - name: Configure
         run: .\make.ps1 -Command configure
       - name: Build Debug
